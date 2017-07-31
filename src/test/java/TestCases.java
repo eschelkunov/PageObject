@@ -16,6 +16,13 @@ public class TestCases {
 
     protected WebDriver driver;
 
+    protected void sleep(int timeout) {
+        try {
+            Thread.sleep(timeout * 1000);
+        } catch (InterruptedException e) {
+        }
+    }
+
     @BeforeTest
     protected void startChrome(){
         System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
@@ -48,7 +55,7 @@ public class TestCases {
         email_field.sendKeys(USERNAME);
         pass_field.sendKeys(PASS);
         signIn.click();
-        //sleep(5);
+        sleep(5);
     }
 
     public void doSuccess(){
@@ -72,14 +79,13 @@ public class TestCases {
     public void doDelete(){
         driver.get("https://dropbox.com/home");
         //waitForElementDisplayedXpath("//span[contains(text(),'tools.txt')]");
-        new Actions(driver).moveToElement(testFile).contextClick().perform();
         //waitForElementDisplayedXpath("//button[@role='button'][contains(@class,'browse-overflow')]");
         driver.findElement(By.xpath("//button[@role='button'][contains(@class,'browse-overflow')]")).click();
         //waitForElementDisplayedXpath("//div//button[@role='menuitem'][contains(text(),'Delete')]");
         driver.findElement(By.xpath("//div//button[@role='menuitem'][contains(text(),'Delete')]")).click();
         //waitForElementDisplayedCss("button.button-primary");
         driver.findElement(By.cssSelector("button.button-primary")).click();
-        //sleep(5);
+        sleep(5);
         Assert.assertTrue(driver.findElements(By.xpath("//span[contains(text(),'tools.txt')]")).isEmpty());
     }
 
