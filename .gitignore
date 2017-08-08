@@ -2,3 +2,6 @@
 .idea*
 src/main/
 target/generated-test-sources/
+target/test-classes/Config.class
+target/test-classes/Pages/
+target/test-classes/Utils/
