@@ -1,5 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea*
+.idea/
 src/main/
 target/generated-test-sources/
 target/test-classes/Config.class
